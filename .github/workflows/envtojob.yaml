@@ -23,7 +23,7 @@ jobs:
         id: color-selector
         run: |
           url = "Service URL: https://run-4i-tst-4casthub-faas-workers-nvykd5ypmq-ue.a.run.app"
-          echo "SELECTED_COLOR=url" >> "$GITHUB_OUTPUT"
+          echo "SELECTED_COLOR=$url" >> "$GITHUB_OUTPUT"
         
       - name: Get color
         env:
