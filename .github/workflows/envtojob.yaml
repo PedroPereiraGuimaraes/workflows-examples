@@ -22,7 +22,7 @@ jobs:
       - name: Set color
         id: color-selector
         run: |
-          url=$()"Service URL: https://run-4i-tst-4casthub-faas-workers-nvykd5ypmq-ue.a.run.app") | grep -o "Service URL: .*" | cut -d " " -f 3
+          url=$("Service URL: https://run-4i-tst-4casthub-faas-workers-nvykd5ypmq-ue.a.run.app") | grep -o "Service URL: .*" | cut -d " " -f 3
           echo "SELECTED_COLOR=$url" >> "$GITHUB_OUTPUT"
         
       - name: Get color
