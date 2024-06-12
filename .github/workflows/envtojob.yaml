@@ -1,0 +1,29 @@
+name: Build deploy TST
+
+on:
+  workflow_dispatch:
+      inputs:
+        manual_deploy:
+          description: "Manual Deploy"
+          required: true
+          type: boolean
+          default: true
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set color
+        id: color-selector
+        run: echo "SELECTED_COLOR=green" >> "$GITHUB_OUTPUT"
+        
+      - name: Get color
+        env:
+          SELECTED_COLOR: ${{ steps.color-selector.outputs.SELECTED_COLOR }}
+        run: echo "The selected color is $SELECTED_COLOR"
