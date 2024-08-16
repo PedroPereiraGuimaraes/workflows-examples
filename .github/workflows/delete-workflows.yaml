@@ -16,9 +16,8 @@ on:
           description: 'Repository name'
           required: true
 
-
 jobs:
-  run-python-script:
+  delete-workflows:
     runs-on: ubuntu-latest
 
     steps:
@@ -33,7 +32,7 @@ jobs:
     - name: Run script with parameters
       env:
         GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
-        REPO_OWNER: 'seu_usuario'
-        REPO_NAME: 'seu_repositorio'
+        REPO_OWNER: ${{ inputs.repo_owner }}
+        REPO_NAME: ${{ inputs.repo_name }}
       run: |
-        python your_script.py
+        python delete-workflows.py
