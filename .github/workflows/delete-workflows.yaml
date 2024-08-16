@@ -8,9 +8,6 @@ on:
           required: true
           type: boolean
           default: true
-        github_token:
-          description: 'GitHub token'
-          required: true
         repo_owner:
           description: 'Repository owner'
           required: true
