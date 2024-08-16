@@ -32,7 +32,7 @@ jobs:
 
     - name: Run script with parameters
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
         REPO_OWNER: 'seu_usuario'
         REPO_NAME: 'seu_repositorio'
       run: |
