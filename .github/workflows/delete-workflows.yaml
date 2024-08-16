@@ -1,0 +1,42 @@
+name: Run Python Script
+
+on:
+  workflow_dispatch:
+      inputs:
+        manual_deploy:
+          description: "Manual Deploy"
+          required: true
+          type: boolean
+          default: true
+        github_token:
+          description: 'GitHub token'
+          required: true
+        repo_owner:
+          description: 'Repository owner'
+          required: true
+          default: 'PedroPereiraGuimaraes'
+        repo_name:
+          description: 'Repository name'
+          required: true
+
+
+jobs:
+  run-python-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12.0'
+
+    - name: Run script with parameters
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        REPO_OWNER: 'seu_usuario'
+        REPO_NAME: 'seu_repositorio'
+      run: |
+        python your_script.py
